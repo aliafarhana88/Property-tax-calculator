@@ -4,14 +4,14 @@
 2. nagivate to the project directory 'cd lbtt-calculator'
 3. initialize node 'npm init -y' <- this will create a package.json file
 4. include version control 'git init'
-   //add .gitignore file.
-   //include node_modules in .gitignore
-   //stage and commit files 'git add . && git commit -m "initial commit" '
+   -add .gitignore file.
+   -include node_modules in .gitignore
+   -stage and commit files 'git add . && git commit -m "initial commit" '
    //create new repo in github and get the repo link
    //push local repo to github
    'git remote add origin <REMOTE_URL>'
    'git remote -v'
-   'git push -u origin main'
+   'git push --set-upstream origin master'
 
 5. install jest npm install jest --save-dev
    //modify test script in package.json file. add the following

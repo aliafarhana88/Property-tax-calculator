@@ -2,26 +2,27 @@
 
 1.  create a project directory
 
-    'mkdir lbtt-calculator'
+        'mkdir lbtt-calculator'
 
 2.  nagivate to the project directory
 
-    'cd lbtt-calculator'
+        'cd lbtt-calculator'
 
 3.  initialize node
 
-    'npm init -y'
+        'npm init -y'
 
     - this will create a package.json file
 
 4.  include version control
 
-    - type 'git init' in the terminal
+            git init
+
     - add .gitignore file.
     - include node_modules in .gitignore
     - stage and commit files
 
-      'git add . && git commit -m "initial commit"'
+            'git add . && git commit -m "initial commit"'
 
     - create new repo in github and get the repo link
     - push local repo to github
@@ -32,7 +33,7 @@
 
 5.  install jest
 
-    'npm install jest --save-dev'
+        'npm install jest --save-dev'
 
 modify test script in package.json file. add the following lines:
 
@@ -63,7 +64,7 @@ modify test script in package.json file. add the following lines:
 
       'npm run test -- --watch'
 
-  - get a green (correct) test ✅
+  - get a green (correct) test
 
 - refactor test code based on the guideline of LBTT (bands, rates, etc)
 - refactor LBTTCalculator function according to the guideline.

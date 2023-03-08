@@ -1,4 +1,6 @@
-# steps to create a codebase for LBTT calculator
+# LBTT calculator
+
+## Steps to recreate the codebase
 
 1.  create a project directory
 
@@ -53,7 +55,7 @@ modify test script in package.json file. add the following lines:
       - -package.json
       - -index.js
 
-# Plan for Test Driven Development
+## Plan for Test Driven Development
 
 - write barebone function in LBTTCalculator.js. function receives arbritrary input and returns 0 ✅
   - export the function ✅

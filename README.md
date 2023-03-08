@@ -38,30 +38,32 @@ modify test script in package.json file. add the following lines:
 
       "type":"module"
       "scripts" :{
-      "test" : node --experimental-vm-module node_modules/jest/bin/jest.js"
+      "test" : node --experimental-vm-modules node_modules/jest/bin/jest.js"
       }
+
+- note: if common JS is used instead of ESM, the test script will be "test" : "jest"
 
 6.  organize the folder structure as follows:
     - lbtt-calculator/
       - -src/
-        - --LBTTCalculator.js
+        - --lbttCalculator.js
       - -test/
-        - --LBTTCalculator.test.js
+        - --lbttCalculator.test.js
       - -package.json
       - -index.js
 
 # Plan for Test Driven Development
 
-- write barebone function in LBTTCalculator.js. function receives arbritrary input and returns 0
-  - export the function
-- write barebone test script in LBTTCalculator-test.js
-  - import the LBTTCalculator.js into the test file
-  - test the output returns 0.
-- run test script in watch mode in the terminal
+- write barebone function in LBTTCalculator.js. function receives arbritrary input and returns 0 ✅
+  - export the function ✅
+- write barebone test script in LBTTCalculator-test.js ✅
+  - import the LBTTCalculator.js into the test file ✅
+  - test the output returns 0. ✅
+- run test script in watch mode in the terminal ✅
 
       'npm run test -- --watch'
 
-  - get a green (correct) test
+  - get a green (correct) test ✅
 
 - refactor test code based on the guideline of LBTT (bands, rates, etc)
 - refactor LBTTCalculator function according to the guideline.

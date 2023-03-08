@@ -8,7 +8,8 @@
     - type 'git init' in the terminal
     - add .gitignore file.
     - include node_modules in .gitignore
-    - stage and commit files 'git add . && git commit -m "initial commit" '
+    - stage and commit files
+      'git add . && git commit -m "initial commit"'
     - create new repo in github and get the repo link
     - push local repo to github
 
@@ -18,31 +19,37 @@
 
 5.  install jest
 
-- npm install jest --save-dev
-- modify test script in package.json file. add the following
-  "type":"module"
-  "scripts" :{
-  "test" : node --experimental-vm-module node_modules/jest/bin/jest.js"
-  }
+'npm install jest --save-dev'
+
+modify test script in package.json file. add the following lines:
+
+      "type":"module"
+      "scripts" :{
+      "test" : node --experimental-vm-module node_modules/jest/bin/jest.js"
+      }
 
 6.  organize the folder structure as follows:
     - lbtt-calculator/
       - -src/
-      - --LBTTCalculator.js
+        - --LBTTCalculator.js
       - -test/
-      - --LBTTCalculator.test.js
+        - --LBTTCalculator.test.js
       - -package.json
       - -index.js
 
 # Plan for Test Driven Development
 
 - write barebone function in LBTTCalculator.js. function receives arbritrary input and returns 0
-  --- export the function
-  //write barebone test script in LBTTCalculator-test.js
-  --- import the LBTTCalculator.js into the test file
-  --- test the output returns 0.
-  //run test script in watch mode in the terminal 'npm run test -- --watch'
-  --- get a green (correct) test
-  //refactor test code based on the guideline of LBTT (bands, rates, etc)
-  //refactor LBTTCalculator function according to the guideline.
-  //continue to run test in watch mode while refactoring the codes.
+  - export the function
+- write barebone test script in LBTTCalculator-test.js
+  - import the LBTTCalculator.js into the test file
+  - test the output returns 0.
+- run test script in watch mode in the terminal
+
+      'npm run test -- --watch'
+
+  - get a green (correct) test
+
+- refactor test code based on the guideline of LBTT (bands, rates, etc)
+- refactor LBTTCalculator function according to the guideline.
+- continue to run test in watch mode while refactoring the codes.

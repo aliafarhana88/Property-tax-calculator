@@ -1,4 +1,4 @@
-import { lbttCalculator , ADS, lbttBandCategory } from "../src/lbttCalculator";
+import { lbttCalculator , ADS } from "../src/lbttCalculator";
 import {test, expect} from "@jest/globals"; 
 
 //----test for LBTT on residential property transaction -----//
@@ -120,7 +120,7 @@ const testCasesE = [[800000, 54350],
                         //totalTax:number}
 
 //test code for main function 
-describe("tests for lbttCalculator function", ()=>{
+describe("tests for lbttCalculator function transaction after 1 April 2021", ()=>{
     test.each(testCasesA)("LBTT for price < 145000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT) =>{
         // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
         // const lbttResult = result.LBTT
@@ -130,21 +130,30 @@ describe("tests for lbttCalculator function", ()=>{
     test.each(testCasesB)("LBTT for price between 145001 and 250000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT) =>{
         //Arrange - specify the transactionDate to be "2022-11-4", and leave other parameters as undefined
         //Act - call the function
-        //Assert - expect actual results to be expected results. 
+        //Assert - expect actual results to be expected results.
+
+        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        // const lbttResult = result.LBTT
+        // expect(lbttResult).toBe(expectedLBTT) 
     })
 
     test.each(testCasesC)("LBTT for price between 250001 and 325000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT)=>{
-        //Arrange - specify the transactionDate to be "2022-11-4"
+        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        // const lbttResult = result.LBTT
+        // expect(lbttResult).toBe(expectedLBTT)
        
     })
 
     test.each(testCasesD)("LBTT for price between 325001 and 750000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT)=>{
-        //specify transactionDate to be "2022-11-4"
-       
+        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        // const lbttResult = result.LBTT
+        // expect(lbttResult).toBe(expectedLBTT)
     })
 
     test.each(testCasesE)("LBTT for price above 750000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT)=>{
-        //specify transactionDate to be "2022-11-4"
+        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        // const lbttResult = result.LBTT
+        // expect(lbttResult).toBe(expectedLBTT)
        
     })
 })
@@ -181,18 +190,40 @@ const testCasesADS = [["2022-12-17", 175000, 150000, 600, 9000, 9600],
                        // firstTimeBuyerRelief : number, 
                         //totalTax:number}
 
+describe("tests for lbttCalculator function", ()=>{
+    test.each(testCasesFTB)("case with fist time buyer", (date, propertyPrice, LBTT, firstTimeBuyerRelief, totalTax ) =>{
+        // // Arrange - set up the data
+        // const result = lbttCalculator(date, propertyPrice, undefined, undefined, true )
+        // const expected = {LBTT: LBTT, 
+        //                 ADS: 0,
+        //                 firstTimeBuyerRelief : firstTimeBuyerRelief, 
+        //                 totalTax:totalTax}
+        // // Assert 
+        // expect(result).toEqual(expected)
+    })
 
+    test.each(testCasesADS)("case with ADS", (date, propertyPrice, otherPropertyPrice, LBTT, ADS, totalTax)=>{
+        // const result = lbttCalculator(date,propertyPrice, true, otherPropertyPrice, undefined)
+        // const expected = {LBTT: LBTT,
+        //                  ADS: ADS, 
+        //                  firstTimeBuyerRelief: 0,
+        //                  totalTax:totalTax}
+        // expect(result).toEqual(expected)
+
+    })
+
+})
 
 
 
 //------test for transaction between 15 July2020 and before 1 April 2021----//
 
-// test("property purchased between 15 July 2020 and before 1 April 2021", ()=>{
-//     const result = lbttCalculator("2020-12-04", 175000, undefined, undefined, undefined)
-//     const expected = {LBTT: 0, ADS: 0, firstTimeBuyerRelief: 0, totalTax: 0}
-//     expect(result).toEqual(expected)
+test("property purchased between 15 July 2020 and before 1 April 2021", ()=>{
+    // const result = lbttCalculator("2020-12-04", 175000, undefined, undefined, undefined)
+    // const expected = {LBTT: 0, ADS: 0, firstTimeBuyerRelief: 0, totalTax: 0}
+    // expect(result).toEqual(expected)
 
-// })
+})
 
 
 

@@ -1,4 +1,4 @@
-# Property Transactions Tax calculator 
+# Property Transaction Tax calculator 
 Based on guidelines by Scotland's Land and Building Transaction Tax
 
 ## Steps to recreate the codebase

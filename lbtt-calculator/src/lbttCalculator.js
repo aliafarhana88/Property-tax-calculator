@@ -120,6 +120,7 @@ export function lbttCalculator ( transactionDate, purchasePrice, isADSapply = fa
 
     
     //get the LBTT band category
+    const lbttBand = lbttBandCategory(transactionDate)
     
     
     //compute LBTT for residential property purchase
@@ -128,6 +129,45 @@ export function lbttCalculator ( transactionDate, purchasePrice, isADSapply = fa
     //keep track of remaining taxable property price 
     //break the loop if remaining taxable property price is 0 or less
 
+    for(let i = 0; i < lbttBand.length; i ++){
+        //if the property purchase is less than 0, break from the loop
+        if (remainingPurchasePrice <=0){
+            break
+        }
+
+        let priceLimit = lbttBand[i].priceLimit //this is upper threshold of each band
+        let priceLowerLimit = i === 0 ? 0 : lbttBand[i-1].priceLimit
+        console.log(`this is lower limit for ${i} Band: ${priceLowerLimit}`)
+        let taxRate = lbttBand[i].lbttRate
+
+        //define taxable amount variable 
+        
+        let taxableAmount = 0
+
+        //if propertyPrice is lower than priceLimit, 
+            //than the taxable amount equals the price of the property minus the lower limit of the threshold
+         //if propertyprice is higher than priceLimit, 
+            //than the taxable amount is the priceLimit (upper) - lower price limit
+            
+        if (purchasePrice <= priceLimit){
+            taxableAmount = purchasePrice - priceLowerLimit
+            console.log(`price within limit. taxable amount is ${taxableAmount}`)
+        } else if(purchasePrice > priceLimit){
+            taxableAmount = priceLimit - priceLowerLimit
+            console.log(`price above limit. taxable amount is ${taxableAmount}`)
+        }
+
+        console.log(`taxable Amount is ${taxableAmount}`)
+        //compute lbtt that is due in this band. 
+        let lbttDueInThisBand = taxableAmount*taxRate
+
+        //update the lbtt
+        lbttDue += lbttDueInThisBand
+        console.log(`lbtt in band ${i} is ${lbttDue}`)
+        //update remaining purchase price 
+        remainingPurchasePrice -= taxableAmount
+
+    }
 
     //write for loop
         //exit the loop if remainingPurchasePrice is less than 0
@@ -193,8 +233,8 @@ export function lbttCalculator ( transactionDate, purchasePrice, isADSapply = fa
                 totalTax : lbttTaxTotal  
     }
     
-    //return lbttObject
-    return 0
+    return lbttObject
+   // return 0
 }
 
 

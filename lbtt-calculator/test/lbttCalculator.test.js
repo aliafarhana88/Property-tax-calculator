@@ -82,6 +82,24 @@ test('initial test function to return 0', ()=>{
 
 //----------------//
 
+// write a test to calculate
+//purchase of 145000, non first time buyer. 
+
+//funtion lbttCalculator input argument: (transactionDate, purchasePrice, isADSapply, otherPropertyPrice, isFirstTimeBuyer)
+//function return value: {LBTT: number, 
+                       // ADS: number,
+                       // firstTimeBuyerRelief : number, 
+                        //totalTax:number}
+
+test("lbtt for purchase price of 145000, non firs time buyer", ()=>{
+    const propertyPurchase = 145000
+    const result = lbttCalculator('2022-10-2', propertyPurchase, undefined, undefined, undefined)
+    const expected = 0;
+    const actuallbtt = result.LBTT
+    expect(actuallbtt).toBe(expected)
+}
+)
+
 
 //test for lbttResidential function
 
@@ -120,11 +138,11 @@ const testCasesE = [[800000, 54350],
                         //totalTax:number}
 
 //test code for main function 
-describe("tests for lbttCalculator function transaction after 1 April 2021", ()=>{
+describe.only("tests for lbttCalculator function transaction after 1 April 2021", ()=>{
     test.each(testCasesA)("LBTT for price < 145000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT) =>{
-        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
-        // const lbttResult = result.LBTT
-        // expect(lbttResult).toBe(expectedLBTT)
+        const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        const lbttResult = result.LBTT
+        expect(lbttResult).toBe(expectedLBTT)
     } )
 
     test.each(testCasesB)("LBTT for price between 145001 and 250000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT) =>{
@@ -132,15 +150,15 @@ describe("tests for lbttCalculator function transaction after 1 April 2021", ()=
         //Act - call the function
         //Assert - expect actual results to be expected results.
 
-        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
-        // const lbttResult = result.LBTT
-        // expect(lbttResult).toBe(expectedLBTT) 
+        const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        const lbttResult = result.LBTT
+        expect(lbttResult).toBe(expectedLBTT) 
     })
 
     test.each(testCasesC)("LBTT for price between 250001 and 325000. Price of %s should return LBTT of %s", (propertyPrice, expectedLBTT)=>{
-        // const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
-        // const lbttResult = result.LBTT
-        // expect(lbttResult).toBe(expectedLBTT)
+        const result = lbttCalculator("2022-11-4", propertyPrice, undefined, undefined, undefined)
+        const lbttResult = result.LBTT
+        expect(lbttResult).toBe(expectedLBTT)
        
     })
 
